@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgresql:
+    container_name: postgresql
+    image: 'bitnami/postgresql:latest'
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=chirimoya
+      - POSTGRES_PASSWORD=wololo
+      - POSTGRES_DB=homework
+    volumes:
+      - ./database/:/docker-entrypoint-initdb.d/init.sql
+      - ./pgdata:/var/lib/postgresql/data/pgdata
+
+  backend:
+    container_name: backend
+    build: ./backend
+    ports:
+      - 3000:3000
+    environment:
+      - port=3000
+      - user=chirimoya
+      - pass=wololo
+      - db=homework
+    depends_on:
+      - postgresql
+  
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 5173:8080
+    depends_on:
+      - backend
+  
