@@ -5,7 +5,7 @@
 </template>
 
 <style scoped>
-/* Estilos del navbar */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -26,6 +26,6 @@
   font-family: 'Arial Rounded MT Bold', sans-serif;
   font-size: 24px;
   color: #4d4dff;
-  text-align: center; /* Centra el texto */
+  text-align: center; 
 }
 </style>
