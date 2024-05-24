@@ -20,7 +20,7 @@
           <div class="overlay-buttons" :class="{ 'centered': !overlayItem.comment }">
             <button v-if="!overlayItem.comment" @click="publishReview(overlayItem.id, overlayItem.text)">Publicar</button>
             <button v-if="overlayItem.comment" @click="publishReview(overlayItem.id, overlayItem.text)">Editar</button>
-            <button @click="deleteGame(overlayItem)" style="background-color: red; color: white;">Eliminar Juego</button>
+            <button @click="deleteGame(overlayItem.id)" style="background-color: red; color: white;">Eliminar Juego</button>
           </div>
         </div>
         <button class="close-btn" @click="closeOverlay">Cerrar</button>
